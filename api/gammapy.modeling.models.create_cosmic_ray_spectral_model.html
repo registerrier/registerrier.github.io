@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create_cosmic_ray_spectral_model &#8212; gammapy v0.20.dev836+gef96e074c.d20220506</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gammapy.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/gammapy_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/gammapy_logo_nav.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting-started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/index.html">
+  User guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/howto.html">
+  How To
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog/index.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        dev  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables api/gammapy.modeling.models.create_cosmic_ray_spectral_model and {'json_url': 'https://docs.gammapy.org/stable/switcher.json', 'url_template': 'https://docs.gammapy.org/{version}/', 'version_match': 'dev'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "api/gammapy.modeling.models.create_cosmic_ray_spectral_model.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://docs.gammapy.org/stable/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "api/gammapy.modeling.models.create_cosmic_ray_spectral_model.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 0.20.dev836+gef96e074c.d20220506 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "dev") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/gammapy/gammapy" rel="noopener" target="_blank" title="Github"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">Github</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/gammapyST" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gammapy.slack.com/" rel="noopener" target="_blank" title="Slack"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.Covariance.html">
+   Covariance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.Fit.html">
+   Fit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.Parameter.html">
+   Parameter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.Parameters.html">
+   Parameters
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   create_cosmic_ray_spectral_model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.create_crab_spectral_model.html">
+   create_crab_spectral_model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.create_fermi_isotropic_diffuse_model.html">
+   create_fermi_isotropic_diffuse_model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.integrate_spectrum.html">
+   integrate_spectrum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.scale_plot_flux.html">
+   scale_plot_flux
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.BrokenPowerLawSpectralModel.html">
+   BrokenPowerLawSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.CompoundSpectralModel.html">
+   CompoundSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ConstantFluxSpatialModel.html">
+   ConstantFluxSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ConstantSpatialModel.html">
+   ConstantSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ConstantSpectralModel.html">
+   ConstantSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ConstantTemporalModel.html">
+   ConstantTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.DatasetModels.html">
+   DatasetModels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.DiskSpatialModel.html">
+   DiskSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.EBLAbsorptionNormSpectralModel.html">
+   EBLAbsorptionNormSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ExpCutoffPowerLaw3FGLSpectralModel.html">
+   ExpCutoffPowerLaw3FGLSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ExpCutoffPowerLawNormSpectralModel.html">
+   ExpCutoffPowerLawNormSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ExpCutoffPowerLawSpectralModel.html">
+   ExpCutoffPowerLawSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ExpDecayTemporalModel.html">
+   ExpDecayTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.FoVBackgroundModel.html">
+   FoVBackgroundModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.GaussianSpatialModel.html">
+   GaussianSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.GaussianSpectralModel.html">
+   GaussianSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.GaussianTemporalModel.html">
+   GaussianTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.GeneralizedGaussianSpatialModel.html">
+   GeneralizedGaussianSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.GeneralizedGaussianTemporalModel.html">
+   GeneralizedGaussianTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.LightCurveTemplateTemporalModel.html">
+   LightCurveTemplateTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.LinearTemporalModel.html">
+   LinearTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.LogParabolaNormSpectralModel.html">
+   LogParabolaNormSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.LogParabolaSpectralModel.html">
+   LogParabolaSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.MeyerCrabSpectralModel.html">
+   MeyerCrabSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.Model.html">
+   Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.Models.html">
+   Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ModelBase.html">
+   ModelBase
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.NaimaSpectralModel.html">
+   NaimaSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PiecewiseNormSpectralModel.html">
+   PiecewiseNormSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PointSpatialModel.html">
+   PointSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PowerLaw2SpectralModel.html">
+   PowerLaw2SpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PowerLawNormSpectralModel.html">
+   PowerLawNormSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PowerLawSpectralModel.html">
+   PowerLawSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.PowerLawTemporalModel.html">
+   PowerLawTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ScaleSpectralModel.html">
+   ScaleSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.Shell2SpatialModel.html">
+   Shell2SpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.ShellSpatialModel.html">
+   ShellSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SineTemporalModel.html">
+   SineTemporalModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SkyModel.html">
+   SkyModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SmoothBrokenPowerLawSpectralModel.html">
+   SmoothBrokenPowerLawSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SpatialModel.html">
+   SpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SpectralModel.html">
+   SpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SuperExpCutoffPowerLaw3FGLSpectralModel.html">
+   SuperExpCutoffPowerLaw3FGLSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SuperExpCutoffPowerLaw4FGLDR3SpectralModel.html">
+   SuperExpCutoffPowerLaw4FGLDR3SpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SuperExpCutoffPowerLaw4FGLSpectralModel.html">
+   SuperExpCutoffPowerLaw4FGLSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TemplateSpatialModel.html">
+   TemplateSpatialModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TemplateSpectralModel.html">
+   TemplateSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TemplateNDSpectralModel.html">
+   TemplateNDSpectralModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TemplateNPredModel.html">
+   TemplateNPredModel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TemporalModel.html">
+   TemporalModel
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.MODEL_REGISTRY.html">
+   MODEL_REGISTRY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SPATIAL_MODEL_REGISTRY.html">
+   SPATIAL_MODEL_REGISTRY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.SPECTRAL_MODEL_REGISTRY.html">
+   SPECTRAL_MODEL_REGISTRY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.modeling.models.TEMPORAL_MODEL_REGISTRY.html">
+   TEMPORAL_MODEL_REGISTRY
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="create-cosmic-ray-spectral-model">
+<h1>create_cosmic_ray_spectral_model<a class="headerlink" href="#create-cosmic-ray-spectral-model" title="Permalink to this headline">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="gammapy.modeling.models.create_cosmic_ray_spectral_model">
+<span class="sig-prename descclassname"><span class="pre">gammapy.modeling.models.</span></span><span class="sig-name descname"><span class="pre">create_cosmic_ray_spectral_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">particle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proton'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/modeling/models/spectral_cosmic_ray.html#create_cosmic_ray_spectral_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.modeling.models.create_cosmic_ray_spectral_model" title="Permalink to this definition">#</a></dt>
+<dd><p>Cosmic a cosmic ray spectral model at Earth.</p>
+<p>These are the spectra assumed in this CTA study:
+Table 3 in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2013APh....43..171B">https://ui.adsabs.harvard.edu/abs/2013APh….43..171B</a></p>
+<p>The spectrum given is a differential flux <code class="docutils literal notranslate"><span class="pre">dnde</span></code> in units of
+<code class="docutils literal notranslate"><span class="pre">cm-2</span> <span class="pre">s-1</span> <span class="pre">TeV-1</span></code>, as the value integrated over the whole sky.
+To get a surface brightness you need to compute
+<code class="docutils literal notranslate"><span class="pre">dnde</span> <span class="pre">/</span> <span class="pre">(4</span> <span class="pre">*</span> <span class="pre">np.pi</span> <span class="pre">*</span> <span class="pre">u.sr)</span></code>.
+To get the <code class="docutils literal notranslate"><span class="pre">dnde</span></code> in a region of solid angle <code class="docutils literal notranslate"><span class="pre">omega</span></code>, you need
+to compute <code class="docutils literal notranslate"><span class="pre">dnde</span> <span class="pre">*</span> <span class="pre">omega</span> <span class="pre">/</span> <span class="pre">(4</span> <span class="pre">*</span> <span class="pre">np.pi</span> <span class="pre">*</span> <span class="pre">u.sr)</span></code>.</p>
+<p>The hadronic spectra are simple power-laws, the electron spectrum
+is the sum of  a power law and a log-normal component to model the
+“Fermi shoulder”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>particle</strong><span class="classifier">{‘electron’, ‘proton’, ‘He’, ‘N’, ‘Si’, ‘Fe’}</span></dt><dd><p>Particle type</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="gammapy.modeling.models.SpectralModel.html#gammapy.modeling.models.SpectralModel" title="gammapy.modeling.models.SpectralModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code></a></dt><dd><p>Spectral model (for all-sky cosmic ray flux)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, The Gammapy developers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

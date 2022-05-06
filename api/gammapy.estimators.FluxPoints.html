@@ -1,0 +1,1634 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FluxPoints &#8212; gammapy v0.20.dev836+gef96e074c.d20220506</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gammapy.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/gammapy_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/gammapy_logo_nav.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting-started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/index.html">
+  User guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/howto.html">
+  How To
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog/index.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        dev  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables api/gammapy.estimators.FluxPoints and {'json_url': 'https://docs.gammapy.org/stable/switcher.json', 'url_template': 'https://docs.gammapy.org/{version}/', 'version_match': 'dev'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "api/gammapy.estimators.FluxPoints.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://docs.gammapy.org/stable/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "api/gammapy.estimators.FluxPoints.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 0.20.dev836+gef96e074c.d20220506 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "dev") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/gammapy/gammapy" rel="noopener" target="_blank" title="Github"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">Github</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/gammapyST" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gammapy.slack.com/" rel="noopener" target="_blank" title="Slack"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ASmoothMapEstimator.html">
+   ASmoothMapEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.Estimator.html">
+   Estimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ExcessMapEstimator.html">
+   ExcessMapEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxMaps.html">
+   FluxMaps
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   FluxPoints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxPointsEstimator.html">
+   FluxPointsEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxProfileEstimator.html">
+   FluxProfileEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ImageProfile.html">
+   ImageProfile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ImageProfileEstimator.html">
+   ImageProfileEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.LightCurveEstimator.html">
+   LightCurveEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.SensitivityEstimator.html">
+   SensitivityEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.TSMapEstimator.html">
+   TSMapEstimator
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ESTIMATOR_REGISTRY.html">
+   ESTIMATOR_REGISTRY
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.estimate_exposure_reco_energy.html">
+   estimate_exposure_reco_energy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.find_peaks.html">
+   find_peaks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.resample_energy_edges.html">
+   resample_energy_edges
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="fluxpoints">
+<h1>FluxPoints<a class="headerlink" href="#fluxpoints" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gammapy.estimators.</span></span><span class="sig-name descname"><span class="pre">FluxPoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_success_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.map.core.FluxMaps"><code class="xref py py-class docutils literal notranslate"><span class="pre">gammapy.estimators.map.core.FluxMaps</span></code></a></p>
+<p>Flux points container.</p>
+<p>The supported formats are described here: <a class="reference external" href="https://gamma-astro-data-formats.readthedocs.io/en/latest/spectra/flux_points/index.html#flux-points" title="(in Data formats for gamma-ray astronomy v0.3.dev)"><span>SED</span></a></p>
+<p>In summary, the following formats and minimum required columns are:</p>
+<ul class="simple">
+<li><p>Format <code class="docutils literal notranslate"><span class="pre">dnde</span></code>: columns <code class="docutils literal notranslate"><span class="pre">e_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">dnde</span></code></p></li>
+<li><p>Format <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code>: columns <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>, <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code></p></li>
+<li><p>Format <code class="docutils literal notranslate"><span class="pre">flux</span></code>: columns <code class="docutils literal notranslate"><span class="pre">e_min</span></code>, <code class="docutils literal notranslate"><span class="pre">e_max</span></code>, <code class="docutils literal notranslate"><span class="pre">flux</span></code></p></li>
+<li><p>Format <code class="docutils literal notranslate"><span class="pre">eflux</span></code>: columns <code class="docutils literal notranslate"><span class="pre">e_min</span></code>, <code class="docutils literal notranslate"><span class="pre">e_max</span></code>, <code class="docutils literal notranslate"><span class="pre">eflux</span></code></p></li>
+</ul>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>table</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></dt><dd><p>Table with flux point data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>The <a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a> object is most easily created by reading a file with
+flux points given in one of the formats documented above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;$GAMMAPY_DATA/hawc_crab/HAWC19_flux_points.fits&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> 
+</pre></div>
+</div>
+<p>An instance of <a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a> can also be created by passing an instance of
+<a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table</span></code></a>, which contains the required columns, such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">'e_ref'</span></code>
+and <code class="xref py py-obj docutils literal notranslate"><span class="pre">'dnde'</span></code>. The corresponding <code class="xref py py-obj docutils literal notranslate"><span class="pre">sed_type</span></code> has to be defined in the meta data
+of the table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.modeling.models</span> <span class="kn">import</span> <span class="n">PowerLawSpectralModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pwl</span> <span class="o">=</span> <span class="n">PowerLawSpectralModel</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">TeV</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;e_ref&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_ref</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;dnde&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pwl</span><span class="p">(</span><span class="n">e_ref</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;dnde_err&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pwl</span><span class="o">.</span><span class="n">evaluate_error</span><span class="p">(</span><span class="n">e_ref</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;SED_TYPE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;dnde&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">from_table</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sed_type</span><span class="o">=</span><span class="s2">&quot;flux&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>If you have flux points in a different data format, the format can be changed
+by renaming the table columns and adding meta data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.utils.scripts</span> <span class="kn">import</span> <span class="n">make_path</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">make_path</span><span class="p">(</span><span class="s1">&#39;$GAMMAPY_DATA/tests/spectrum/flux_points/flux_points_ctb_37b.txt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span> <span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s1">&#39;Differential_Flux&#39;</span><span class="p">,</span> <span class="s1">&#39;dnde&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;dnde&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;cm-2 s-1 TeV-1&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s1">&#39;lower_error&#39;</span><span class="p">,</span> <span class="s1">&#39;dnde_errn&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;dnde_errn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;cm-2 s-1 TeV-1&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s1">&#39;upper_error&#39;</span><span class="p">,</span> <span class="s1">&#39;dnde_errp&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;dnde_errp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;cm-2 s-1 TeV-1&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;e_ref&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;e_ref&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;TeV&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">from_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">sed_type</span><span class="o">=</span><span class="s2">&quot;dnde&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sed_type</span><span class="o">=</span><span class="s2">&quot;e2dnde&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Note: In order to reproduce the example you need the tests datasets folder.
+You may download it with the command
+<code class="docutils literal notranslate"><span class="pre">gammapy</span> <span class="pre">download</span> <span class="pre">datasets</span> <span class="pre">--tests</span> <span class="pre">--out</span> <span class="pre">$GAMMAPY_DATA</span></code></p>
+<dl class="field-list">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl>
+<dt><strong>table</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></dt><dd><p>Table with flux point data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Attributes Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.available_quantities" title="gammapy.estimators.FluxPoints.available_quantities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">available_quantities</span></code></a></p></td>
+<td><p>Available quantities</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.counts" title="gammapy.estimators.FluxPoints.counts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">counts</span></code></a></p></td>
+<td><p>Predicted counts null hypothesis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde" title="gammapy.estimators.FluxPoints.dnde"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde</span></code></a></p></td>
+<td><p>Return differential flux (dnde) SED values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde_err" title="gammapy.estimators.FluxPoints.dnde_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde_err</span></code></a></p></td>
+<td><p>Return differential flux (dnde) SED errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde_errn" title="gammapy.estimators.FluxPoints.dnde_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde_errn</span></code></a></p></td>
+<td><p>Return differential flux (dnde) SED negative errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde_errp" title="gammapy.estimators.FluxPoints.dnde_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde_errp</span></code></a></p></td>
+<td><p>Return differential flux (dnde) SED positive errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde_ref" title="gammapy.estimators.FluxPoints.dnde_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde_ref</span></code></a></p></td>
+<td><p>Reference differential flux</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.dnde_ul" title="gammapy.estimators.FluxPoints.dnde_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dnde_ul</span></code></a></p></td>
+<td><p>Return differential flux (dnde) SED upper limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde" title="gammapy.estimators.FluxPoints.e2dnde"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde</span></code></a></p></td>
+<td><p>Return differential energy flux (e2dnde) SED values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde_err" title="gammapy.estimators.FluxPoints.e2dnde_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde_err</span></code></a></p></td>
+<td><p>Return differential energy flux (e2dnde) SED errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde_errn" title="gammapy.estimators.FluxPoints.e2dnde_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde_errn</span></code></a></p></td>
+<td><p>Return differential energy flux (e2dnde) SED negative errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde_errp" title="gammapy.estimators.FluxPoints.e2dnde_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde_errp</span></code></a></p></td>
+<td><p>Return differential energy flux (e2dnde) SED positive errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde_ref" title="gammapy.estimators.FluxPoints.e2dnde_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde_ref</span></code></a></p></td>
+<td><p>Reference differential flux * energy ** 2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.e2dnde_ul" title="gammapy.estimators.FluxPoints.e2dnde_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e2dnde_ul</span></code></a></p></td>
+<td><p>Return differential energy flux (e2dnde) SED upper limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux" title="gammapy.estimators.FluxPoints.eflux"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux</span></code></a></p></td>
+<td><p>Return energy flux (eflux) SED values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux_err" title="gammapy.estimators.FluxPoints.eflux_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux_err</span></code></a></p></td>
+<td><p>Return energy flux (eflux) SED errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux_errn" title="gammapy.estimators.FluxPoints.eflux_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux_errn</span></code></a></p></td>
+<td><p>Return energy flux (eflux) SED negative errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux_errp" title="gammapy.estimators.FluxPoints.eflux_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux_errp</span></code></a></p></td>
+<td><p>Return energy flux (eflux) SED positive errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux_ref" title="gammapy.estimators.FluxPoints.eflux_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux_ref</span></code></a></p></td>
+<td><p>Reference energy flux</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.eflux_ul" title="gammapy.estimators.FluxPoints.eflux_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eflux_ul</span></code></a></p></td>
+<td><p>Return energy flux (eflux) SED upper limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_axis" title="gammapy.estimators.FluxPoints.energy_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_axis</span></code></a></p></td>
+<td><p>Energy axis (<code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_max" title="gammapy.estimators.FluxPoints.energy_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_max</span></code></a></p></td>
+<td><p>Energy max</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_min" title="gammapy.estimators.FluxPoints.energy_min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_min</span></code></a></p></td>
+<td><p>Energy min</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_ref" title="gammapy.estimators.FluxPoints.energy_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_ref</span></code></a></p></td>
+<td><p>Reference energy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.filter_success_nan" title="gammapy.estimators.FluxPoints.filter_success_nan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_success_nan</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux" title="gammapy.estimators.FluxPoints.flux"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux</span></code></a></p></td>
+<td><p>Return integral flux (flux) SED values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux_err" title="gammapy.estimators.FluxPoints.flux_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_err</span></code></a></p></td>
+<td><p>Return integral flux (flux) SED values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux_errn" title="gammapy.estimators.FluxPoints.flux_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_errn</span></code></a></p></td>
+<td><p>Return integral flux (flux) SED negative errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux_errp" title="gammapy.estimators.FluxPoints.flux_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_errp</span></code></a></p></td>
+<td><p>Return integral flux (flux) SED positive errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux_ref" title="gammapy.estimators.FluxPoints.flux_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_ref</span></code></a></p></td>
+<td><p>Reference integral flux</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.flux_ul" title="gammapy.estimators.FluxPoints.flux_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_ul</span></code></a></p></td>
+<td><p>Return integral flux (flux) SED upper limits.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.geom" title="gammapy.estimators.FluxPoints.geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">geom</span></code></a></p></td>
+<td><p>Reference map geometry (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.has_any_ts" title="gammapy.estimators.FluxPoints.has_any_ts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_any_ts</span></code></a></p></td>
+<td><p>Whether the flux estimate has either sqrt(ts) or ts defined</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.has_stat_profiles" title="gammapy.estimators.FluxPoints.has_stat_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_stat_profiles</span></code></a></p></td>
+<td><p>Whether the flux estimate has stat profiles</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.has_success" title="gammapy.estimators.FluxPoints.has_success"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_success</span></code></a></p></td>
+<td><p>Whether the flux estimate has the fit status</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.has_ul" title="gammapy.estimators.FluxPoints.has_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_ul</span></code></a></p></td>
+<td><p>Whether the flux estimate has norm_ul defined</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.is_convertible_to_flux_sed_type" title="gammapy.estimators.FluxPoints.is_convertible_to_flux_sed_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_convertible_to_flux_sed_type</span></code></a></p></td>
+<td><p>Check whether differential sed type is convertable to integral sed type</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.is_ul" title="gammapy.estimators.FluxPoints.is_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_ul</span></code></a></p></td>
+<td><p>Whether data is an upper limit</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.n_sigma" title="gammapy.estimators.FluxPoints.n_sigma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_sigma</span></code></a></p></td>
+<td><p>n sigma</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.n_sigma_ul" title="gammapy.estimators.FluxPoints.n_sigma_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_sigma_ul</span></code></a></p></td>
+<td><p>n sigma UL</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.niter" title="gammapy.estimators.FluxPoints.niter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">niter</span></code></a></p></td>
+<td><p>Number of iterations of fit</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.norm" title="gammapy.estimators.FluxPoints.norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></a></p></td>
+<td><p>Norm values</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.norm_err" title="gammapy.estimators.FluxPoints.norm_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_err</span></code></a></p></td>
+<td><p>Norm error</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.norm_errn" title="gammapy.estimators.FluxPoints.norm_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_errn</span></code></a></p></td>
+<td><p>Negative norm error</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.norm_errp" title="gammapy.estimators.FluxPoints.norm_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_errp</span></code></a></p></td>
+<td><p>Positive norm error</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.norm_ul" title="gammapy.estimators.FluxPoints.norm_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_ul</span></code></a></p></td>
+<td><p>Norm upper limit</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred" title="gammapy.estimators.FluxPoints.npred"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred</span></code></a></p></td>
+<td><p>Predicted counts from best fit hypothesis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_background" title="gammapy.estimators.FluxPoints.npred_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_background</span></code></a></p></td>
+<td><p>Predicted background counts from best fit hypothesis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess" title="gammapy.estimators.FluxPoints.npred_excess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess</span></code></a></p></td>
+<td><p>Predicted excess count  rom best fit hypothesis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess_err" title="gammapy.estimators.FluxPoints.npred_excess_err"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess_err</span></code></a></p></td>
+<td><p>Predicted excess counts error</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess_errn" title="gammapy.estimators.FluxPoints.npred_excess_errn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess_errn</span></code></a></p></td>
+<td><p>Predicted excess counts negative error</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess_errp" title="gammapy.estimators.FluxPoints.npred_excess_errp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess_errp</span></code></a></p></td>
+<td><p>Predicted excess counts positive error</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess_ref" title="gammapy.estimators.FluxPoints.npred_excess_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess_ref</span></code></a></p></td>
+<td><p>Predicted excess reference counts</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.npred_excess_ul" title="gammapy.estimators.FluxPoints.npred_excess_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npred_excess_ul</span></code></a></p></td>
+<td><p>Predicted excess counts upper limits</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.reference_model" title="gammapy.estimators.FluxPoints.reference_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_model</span></code></a></p></td>
+<td><p>Reference model (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyModel</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.reference_model_default" title="gammapy.estimators.FluxPoints.reference_model_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_model_default</span></code></a></p></td>
+<td><p>Reference model default (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyModel</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.reference_spectral_model" title="gammapy.estimators.FluxPoints.reference_spectral_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reference_spectral_model</span></code></a></p></td>
+<td><p>Reference spectral model (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.sed_type_init" title="gammapy.estimators.FluxPoints.sed_type_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sed_type_init</span></code></a></p></td>
+<td><p>Initial sed type</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.sed_type_plot_default" title="gammapy.estimators.FluxPoints.sed_type_plot_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sed_type_plot_default</span></code></a></p></td>
+<td><p>Initial sed type</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.sqrt_ts" title="gammapy.estimators.FluxPoints.sqrt_ts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt_ts</span></code></a></p></td>
+<td><p>sqrt(TS) as defined by:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.sqrt_ts_threshold_ul" title="gammapy.estimators.FluxPoints.sqrt_ts_threshold_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt_ts_threshold_ul</span></code></a></p></td>
+<td><p>sqrt(TS) threshold for upper limits</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.stat" title="gammapy.estimators.FluxPoints.stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat</span></code></a></p></td>
+<td><p>Fit statistic value</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.stat_null" title="gammapy.estimators.FluxPoints.stat_null"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat_null</span></code></a></p></td>
+<td><p>Fit statistic value for the null hypothesis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.stat_scan" title="gammapy.estimators.FluxPoints.stat_scan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat_scan</span></code></a></p></td>
+<td><p>Fit statistic scan value</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.success" title="gammapy.estimators.FluxPoints.success"><code class="xref py py-obj docutils literal notranslate"><span class="pre">success</span></code></a></p></td>
+<td><p>Fit success flag</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.ts" title="gammapy.estimators.FluxPoints.ts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ts</span></code></a></p></td>
+<td><p>ts map (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.ts_scan" title="gammapy.estimators.FluxPoints.ts_scan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ts_scan</span></code></a></p></td>
+<td><p>ts scan (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.all_quantities" title="gammapy.estimators.FluxPoints.all_quantities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_quantities</span></code></a>(sed_type)</p></td>
+<td><p>All quantities allowed for a given sed type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.from_hdulist" title="gammapy.estimators.FluxPoints.from_hdulist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_hdulist</span></code></a>(hdulist[, hdu_bands, sed_type])</p></td>
+<td><p>Create flux map dataset from list of HDUs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.from_maps" title="gammapy.estimators.FluxPoints.from_maps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_maps</span></code></a>(maps[, sed_type, reference_model, ...])</p></td>
+<td><p>Create FluxMaps from a dictionary of maps.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.from_stack" title="gammapy.estimators.FluxPoints.from_stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_stack</span></code></a>(maps, axis[, meta])</p></td>
+<td><p>Create flux points by stacking list of flux points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.from_table" title="gammapy.estimators.FluxPoints.from_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_table</span></code></a>(table[, sed_type, format, ...])</p></td>
+<td><p>Create flux points from a table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.get_flux_points" title="gammapy.estimators.FluxPoints.get_flux_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_flux_points</span></code></a>([position])</p></td>
+<td><p>Extract flux point at a given position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.plot" title="gammapy.estimators.FluxPoints.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>([ax, sed_type, energy_power])</p></td>
+<td><p>Plot flux points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.plot_ts_profiles" title="gammapy.estimators.FluxPoints.plot_ts_profiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_ts_profiles</span></code></a>([ax, sed_type, add_cbar])</p></td>
+<td><p>Plot fit statistic SED profiles as a density plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.read" title="gammapy.estimators.FluxPoints.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(filename[, sed_type, format, ...])</p></td>
+<td><p>Read precomputed flux points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.recompute_ul" title="gammapy.estimators.FluxPoints.recompute_ul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recompute_ul</span></code></a>([n_sigma_ul])</p></td>
+<td><p>Recompute upper limits corresponding to the given value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.slice_by_idx" title="gammapy.estimators.FluxPoints.slice_by_idx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_by_idx</span></code></a>(slices)</p></td>
+<td><p>Slice flux maps by idx</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.to_hdulist" title="gammapy.estimators.FluxPoints.to_hdulist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_hdulist</span></code></a>([sed_type, hdu_bands])</p></td>
+<td><p>Convert flux map to list of HDUs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.to_maps" title="gammapy.estimators.FluxPoints.to_maps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_maps</span></code></a>([sed_type])</p></td>
+<td><p>Return maps in a given SED type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.to_table" title="gammapy.estimators.FluxPoints.to_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_table</span></code></a>([sed_type, format, formatted])</p></td>
+<td><p>Create table for a given SED type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.FluxPoints.write" title="gammapy.estimators.FluxPoints.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(filename[, sed_type, format])</p></td>
+<td><p>Write flux points.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.available_quantities">
+<span class="sig-name descname"><span class="pre">available_quantities</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.available_quantities" title="Permalink to this definition">#</a></dt>
+<dd><p>Available quantities</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.counts">
+<span class="sig-name descname"><span class="pre">counts</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.counts" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted counts null hypothesis</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde">
+<span class="sig-name descname"><span class="pre">dnde</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential flux (dnde) SED values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde_err">
+<span class="sig-name descname"><span class="pre">dnde_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential flux (dnde) SED errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde_errn">
+<span class="sig-name descname"><span class="pre">dnde_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential flux (dnde) SED negative errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde_errp">
+<span class="sig-name descname"><span class="pre">dnde_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential flux (dnde) SED positive errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde_ref">
+<span class="sig-name descname"><span class="pre">dnde_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference differential flux</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.dnde_ul">
+<span class="sig-name descname"><span class="pre">dnde_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.dnde_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential flux (dnde) SED upper limit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde">
+<span class="sig-name descname"><span class="pre">e2dnde</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential energy flux (e2dnde) SED values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde_err">
+<span class="sig-name descname"><span class="pre">e2dnde_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential energy flux (e2dnde) SED errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde_errn">
+<span class="sig-name descname"><span class="pre">e2dnde_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential energy flux (e2dnde) SED negative errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde_errp">
+<span class="sig-name descname"><span class="pre">e2dnde_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential energy flux (e2dnde) SED positive errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde_ref">
+<span class="sig-name descname"><span class="pre">e2dnde_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference differential flux * energy ** 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.e2dnde_ul">
+<span class="sig-name descname"><span class="pre">e2dnde_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.e2dnde_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Return differential energy flux (e2dnde) SED upper limit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux">
+<span class="sig-name descname"><span class="pre">eflux</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux" title="Permalink to this definition">#</a></dt>
+<dd><p>Return energy flux (eflux) SED values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux_err">
+<span class="sig-name descname"><span class="pre">eflux_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Return energy flux (eflux) SED errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux_errn">
+<span class="sig-name descname"><span class="pre">eflux_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Return energy flux (eflux) SED negative errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux_errp">
+<span class="sig-name descname"><span class="pre">eflux_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Return energy flux (eflux) SED positive errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux_ref">
+<span class="sig-name descname"><span class="pre">eflux_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference energy flux</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.eflux_ul">
+<span class="sig-name descname"><span class="pre">eflux_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.eflux_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Return energy flux (eflux) SED upper limits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.energy_axis">
+<span class="sig-name descname"><span class="pre">energy_axis</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.energy_axis" title="Permalink to this definition">#</a></dt>
+<dd><p>Energy axis (<code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.energy_max">
+<span class="sig-name descname"><span class="pre">energy_max</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.energy_max" title="Permalink to this definition">#</a></dt>
+<dd><p>Energy max</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_max</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Upper bound of energy bin.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.energy_min">
+<span class="sig-name descname"><span class="pre">energy_min</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.energy_min" title="Permalink to this definition">#</a></dt>
+<dd><p>Energy min</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_min</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Lower bound of energy bin.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.energy_ref">
+<span class="sig-name descname"><span class="pre">energy_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.energy_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference energy.</p>
+<p>Defined by <a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_ref" title="gammapy.estimators.FluxPoints.energy_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_ref</span></code></a> column in <code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints.table</span></code> or computed as log
+center, if <a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_min" title="gammapy.estimators.FluxPoints.energy_min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_min</span></code></a> and <a class="reference internal" href="#gammapy.estimators.FluxPoints.energy_max" title="gammapy.estimators.FluxPoints.energy_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_max</span></code></a> columns are present in <code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxEstimate.data</span></code>.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_ref</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Reference energy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.filter_success_nan">
+<span class="sig-name descname"><span class="pre">filter_success_nan</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.filter_success_nan" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux">
+<span class="sig-name descname"><span class="pre">flux</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux" title="Permalink to this definition">#</a></dt>
+<dd><p>Return integral flux (flux) SED values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux_err">
+<span class="sig-name descname"><span class="pre">flux_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Return integral flux (flux) SED values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux_errn">
+<span class="sig-name descname"><span class="pre">flux_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Return integral flux (flux) SED negative errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux_errp">
+<span class="sig-name descname"><span class="pre">flux_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Return integral flux (flux) SED positive errors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux_ref">
+<span class="sig-name descname"><span class="pre">flux_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference integral flux</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.flux_ul">
+<span class="sig-name descname"><span class="pre">flux_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.flux_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Return integral flux (flux) SED upper limits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.geom">
+<span class="sig-name descname"><span class="pre">geom</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.geom" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference map geometry (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.has_any_ts">
+<span class="sig-name descname"><span class="pre">has_any_ts</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.has_any_ts" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether the flux estimate has either sqrt(ts) or ts defined</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.has_stat_profiles">
+<span class="sig-name descname"><span class="pre">has_stat_profiles</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.has_stat_profiles" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether the flux estimate has stat profiles</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.has_success">
+<span class="sig-name descname"><span class="pre">has_success</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.has_success" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether the flux estimate has the fit status</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.has_ul">
+<span class="sig-name descname"><span class="pre">has_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.has_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether the flux estimate has norm_ul defined</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.is_convertible_to_flux_sed_type">
+<span class="sig-name descname"><span class="pre">is_convertible_to_flux_sed_type</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.is_convertible_to_flux_sed_type" title="Permalink to this definition">#</a></dt>
+<dd><p>Check whether differential sed type is convertable to integral sed type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.is_ul">
+<span class="sig-name descname"><span class="pre">is_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.is_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether data is an upper limit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.n_sigma">
+<span class="sig-name descname"><span class="pre">n_sigma</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.n_sigma" title="Permalink to this definition">#</a></dt>
+<dd><p>n sigma</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.n_sigma_ul">
+<span class="sig-name descname"><span class="pre">n_sigma_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.n_sigma_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>n sigma UL</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.niter">
+<span class="sig-name descname"><span class="pre">niter</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.niter" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of iterations of fit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.norm">
+<span class="sig-name descname"><span class="pre">norm</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.norm" title="Permalink to this definition">#</a></dt>
+<dd><p>Norm values</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.norm_err">
+<span class="sig-name descname"><span class="pre">norm_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.norm_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Norm error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.norm_errn">
+<span class="sig-name descname"><span class="pre">norm_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.norm_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Negative norm error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.norm_errp">
+<span class="sig-name descname"><span class="pre">norm_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.norm_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Positive norm error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.norm_ul">
+<span class="sig-name descname"><span class="pre">norm_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.norm_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Norm upper limit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred">
+<span class="sig-name descname"><span class="pre">npred</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted counts from best fit hypothesis</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_background">
+<span class="sig-name descname"><span class="pre">npred_background</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_background" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted background counts from best fit hypothesis</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess">
+<span class="sig-name descname"><span class="pre">npred_excess</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess count  rom best fit hypothesis</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess_err">
+<span class="sig-name descname"><span class="pre">npred_excess_err</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess_err" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess counts error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess_errn">
+<span class="sig-name descname"><span class="pre">npred_excess_errn</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess_errn" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess counts negative error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess_errp">
+<span class="sig-name descname"><span class="pre">npred_excess_errp</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess_errp" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess counts positive error</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess_ref">
+<span class="sig-name descname"><span class="pre">npred_excess_ref</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess_ref" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess reference counts</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.npred_excess_ul">
+<span class="sig-name descname"><span class="pre">npred_excess_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.npred_excess_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Predicted excess counts upper limits</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.reference_model">
+<span class="sig-name descname"><span class="pre">reference_model</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.reference_model" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference model (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyModel</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.reference_model_default">
+<span class="sig-name descname"><span class="pre">reference_model_default</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.reference_model_default" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference model default (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyModel</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.reference_spectral_model">
+<span class="sig-name descname"><span class="pre">reference_spectral_model</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.reference_spectral_model" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference spectral model (<code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.sed_type_init">
+<span class="sig-name descname"><span class="pre">sed_type_init</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.sed_type_init" title="Permalink to this definition">#</a></dt>
+<dd><p>Initial sed type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.sed_type_plot_default">
+<span class="sig-name descname"><span class="pre">sed_type_plot_default</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.sed_type_plot_default" title="Permalink to this definition">#</a></dt>
+<dd><p>Initial sed type</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.sqrt_ts">
+<span class="sig-name descname"><span class="pre">sqrt_ts</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.sqrt_ts" title="Permalink to this definition">#</a></dt>
+<dd><p>sqrt(TS) as defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\sqrt{TS} = \left \{
+\begin{array}{ll}
+  -\sqrt{TS} &amp; : \text{if} \ norm &lt; 0 \\
+  \sqrt{TS} &amp; : \text{else}
+\end{array}
+\right.\end{split}\]</div>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sqrt_ts</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></span></dt><dd><p>sqrt(TS) map</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.sqrt_ts_threshold_ul">
+<span class="sig-name descname"><span class="pre">sqrt_ts_threshold_ul</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.sqrt_ts_threshold_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>sqrt(TS) threshold for upper limits</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.stat">
+<span class="sig-name descname"><span class="pre">stat</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.stat" title="Permalink to this definition">#</a></dt>
+<dd><p>Fit statistic value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.stat_null">
+<span class="sig-name descname"><span class="pre">stat_null</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.stat_null" title="Permalink to this definition">#</a></dt>
+<dd><p>Fit statistic value for the null hypothesis</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.stat_scan">
+<span class="sig-name descname"><span class="pre">stat_scan</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.stat_scan" title="Permalink to this definition">#</a></dt>
+<dd><p>Fit statistic scan value</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.success">
+<span class="sig-name descname"><span class="pre">success</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.success" title="Permalink to this definition">#</a></dt>
+<dd><p>Fit success flag</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.ts">
+<span class="sig-name descname"><span class="pre">ts</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.ts" title="Permalink to this definition">#</a></dt>
+<dd><p>ts map (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.ts_scan">
+<span class="sig-name descname"><span class="pre">ts_scan</span></span><a class="headerlink" href="#gammapy.estimators.FluxPoints.ts_scan" title="Permalink to this definition">#</a></dt>
+<dd><p>ts scan (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code>)</p>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.all_quantities">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_quantities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sed_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.all_quantities" title="Permalink to this definition">#</a></dt>
+<dd><p>All quantities allowed for a given sed type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sed_type</strong><span class="classifier">{“likelihood”, “dnde”, “e2dnde”, “flux”, “eflux”}</span></dt><dd><p>Sed type.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">list of str</span></dt><dd><p>All allowed quantities for a given sed type.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.from_hdulist">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hdulist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdulist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdu_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.from_hdulist" title="Permalink to this definition">#</a></dt>
+<dd><p>Create flux map dataset from list of HDUs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>hdulist</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a></span></dt><dd><p>List of HDUs.</p>
+</dd>
+<dt><strong>hdu_bands</strong><span class="classifier">str</span></dt><dd><p>Name of the HDU with the BANDS table. Default is ‘BANDS’
+If set to None, each map should have its own hdu_band</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “e2dnde”, “eflux”, “likelihood”}</span></dt><dd><p>Sed type</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_maps</strong><span class="classifier"><a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.FluxMaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxMaps</span></code></a></span></dt><dd><p>Flux maps object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.from_maps">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.from_maps" title="Permalink to this definition">#</a></dt>
+<dd><p>Create FluxMaps from a dictionary of maps.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>maps</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Maps</span></code></span></dt><dd><p>Maps object containing the input maps.</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">str</span></dt><dd><p>SED type of the input maps. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">Likelihood</span></code></p>
+</dd>
+<dt><strong>reference_model</strong><span class="classifier"><a class="reference internal" href="gammapy.modeling.models.SkyModel.html#gammapy.modeling.models.SkyModel" title="gammapy.modeling.models.SkyModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyModel</span></code></a>, optional</span></dt><dd><p>Reference model to use for conversions. Default in None.
+If None, a model consisting of a point source with a power
+law spectrum of index 2 is assumed.</p>
+</dd>
+<dt><strong>gti</strong><span class="classifier"><a class="reference internal" href="gammapy.data.GTI.html#gammapy.data.GTI" title="gammapy.data.GTI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GTI</span></code></a></span></dt><dd><p>Maps GTI information. Default is None.</p>
+</dd>
+<dt><strong>meta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>Meta dict.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_maps</strong><span class="classifier"><a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.FluxMaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxMaps</span></code></a></span></dt><dd><p>Flux maps object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.from_stack">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.from_stack" title="Permalink to this definition">#</a></dt>
+<dd><p>Create flux points by stacking list of flux points.</p>
+<p>The first <a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a> object in the list is taken as a reference to infer
+column names and units for the stacked object.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>maps</strong><span class="classifier">list of <a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.FluxMaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxMaps</span></code></a></span></dt><dd><p>List of maps to stack.</p>
+</dd>
+<dt><strong>axis</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code></span></dt><dd><p>New axis to create</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_maps</strong><span class="classifier"><a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.FluxMaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxMaps</span></code></a></span></dt><dd><p>Stacked flux maps along axis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.from_table">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf-sed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.from_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.from_table" title="Permalink to this definition">#</a></dt>
+<dd><p>Create flux points from a table. The table column names must be consistent with the
+sed_type</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>table</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></dt><dd><p>Table</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “eflux”, “e2dnde”, “likelihood”}</span></dt><dd><p>Sed type</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf-sed”, “lightcurve”, “profile”}</span></dt><dd><p>Table format.</p>
+</dd>
+<dt><strong>reference_model</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code></span></dt><dd><p>Reference spectral model</p>
+</dd>
+<dt><strong>gti</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GTI</span></code></span></dt><dd><p>Good time intervals</p>
+</dd>
+<dt><strong>meta</strong><span class="classifier">dict</span></dt><dd><p>Meta data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_points</strong><span class="classifier"><a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a></span></dt><dd><p>Flux points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.get_flux_points">
+<span class="sig-name descname"><span class="pre">get_flux_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.get_flux_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract flux point at a given position.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>position</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.SkyCoord.html#astropy.coordinates.SkyCoord" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyCoord</span></code></a></span></dt><dd><p>Position where the flux points are extracted.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_points</strong><span class="classifier"><a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a></span></dt><dd><p>Flux points object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot flux points.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axis object to plot on.</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “eflux”, “e2dnde”}</span></dt><dd><p>Sed type</p>
+</dd>
+<dt><strong>energy_power</strong><span class="classifier">float</span></dt><dd><p>Power of energy to multiply flux axis with</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axis object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.plot_ts_profiles">
+<span class="sig-name descname"><span class="pre">plot_ts_profiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_cbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.plot_ts_profiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.plot_ts_profiles" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot fit statistic SED profiles as a density plot.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axis object to plot on.</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “eflux”, “e2dnde”}</span></dt><dd><p>Sed type</p>
+</dd>
+<dt><strong>add_cbar</strong><span class="classifier">bool</span></dt><dd><p>Whether to add a colorbar to the plot.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html#matplotlib.pyplot.pcolormesh" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcolormesh</span></code></a></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axis object</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.read">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf-sed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.read" title="Permalink to this definition">#</a></dt>
+<dd><p>Read precomputed flux points.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Filename</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “eflux”, “e2dnde”, “likelihood”}</span></dt><dd><p>Sed type</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf-sed”, “lightcurve”}</span></dt><dd><p>Format string.</p>
+</dd>
+<dt><strong>reference_model</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code></span></dt><dd><p>Reference spectral model</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table.read" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.read</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_points</strong><span class="classifier"><a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a></span></dt><dd><p>Flux points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.recompute_ul">
+<span class="sig-name descname"><span class="pre">recompute_ul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sigma_ul</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.recompute_ul"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.recompute_ul" title="Permalink to this definition">#</a></dt>
+<dd><p>Recompute upper limits corresponding to the given value.
+The pre-computed stat profiles must exist for the re-computation.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_sigma_ul</strong><span class="classifier">int</span></dt><dd><p>Number of sigma to use for upper limit computation. Default is 2.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html#scipy.optimize.brentq" title="(in SciPy v1.8.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">brentq</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_points</strong><span class="classifier"><a class="reference internal" href="#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a></span></dt><dd><p>A new FluxPoints object with modified upper limits</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;$GAMMAPY_DATA/tests/spectrum/flux_points/binlike.fits&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points_recomputed</span> <span class="o">=</span> <span class="n">flux_points</span><span class="o">.</span><span class="n">recompute_ul</span><span class="p">(</span><span class="n">n_sigma_ul</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">flux_points</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;n_sigma_ul&quot;</span><span class="p">],</span> <span class="n">flux_points</span><span class="o">.</span><span class="n">flux_ul</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">2.0 [[3.95451985e-09]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">flux_points_recomputed</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;n_sigma_ul&quot;</span><span class="p">],</span> <span class="n">flux_points_recomputed</span><span class="o">.</span><span class="n">flux_ul</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">3 [[6.22245374e-09]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.slice_by_idx">
+<span class="sig-name descname"><span class="pre">slice_by_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.slice_by_idx" title="Permalink to this definition">#</a></dt>
+<dd><p>Slice flux maps by idx</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>slices</strong><span class="classifier">dict</span></dt><dd><p>Dict of axes names and integers or <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a> object pairs. Contains one
+element for each non-spatial dimension. For integer indexing the
+corresponding axes is dropped from the map. Axes not specified in the
+dict are kept unchanged.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>flux_maps</strong><span class="classifier"><a class="reference internal" href="gammapy.estimators.FluxMaps.html#gammapy.estimators.FluxMaps" title="gammapy.estimators.FluxMaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxMaps</span></code></a></span></dt><dd><p>Sliced flux maps object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.to_hdulist">
+<span class="sig-name descname"><span class="pre">to_hdulist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdu_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.to_hdulist" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert flux map to list of HDUs.</p>
+<p>For now, one cannot export the reference model.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sed_type</strong><span class="classifier">str</span></dt><dd><p>sed type to convert to. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">Likelihood</span></code></p>
+</dd>
+<dt><strong>hdu_bands</strong><span class="classifier">str</span></dt><dd><p>Name of the HDU with the BANDS table. Default is ‘BANDS’
+If set to None, each map will have its own hdu_band</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>hdulist</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a></span></dt><dd><p>Map dataset list of HDUs.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.to_maps">
+<span class="sig-name descname"><span class="pre">to_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.FluxPoints.to_maps" title="Permalink to this definition">#</a></dt>
+<dd><p>Return maps in a given SED type.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sed_type</strong><span class="classifier">{“likelihood”, “dnde”, “e2dnde”, “flux”, “eflux”}</span></dt><dd><p>sed type to convert to. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">Likelihood</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>maps</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Maps</span></code></span></dt><dd><p>Maps object containing the requested maps.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.to_table">
+<span class="sig-name descname"><span class="pre">to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf-sed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.to_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.to_table" title="Permalink to this definition">#</a></dt>
+<dd><p>Create table for a given SED type.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sed_type</strong><span class="classifier">{“likelihood”, “dnde”, “e2dnde”, “flux”, “eflux”}</span></dt><dd><p>Sed type to convert to. Default is <code class="xref py py-obj docutils literal notranslate"><span class="pre">likelihood</span></code></p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf-sed”, “lightcurve”, “binned-time-series”, “profile”}</span></dt><dd><p>Format specification. The following formats are supported:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“gadf-sed”: format for sed flux points see <a class="reference external" href="https://gamma-astro-data-formats.readthedocs.io/en/latest/spectra/flux_points/index.html#flux-points" title="(in Data formats for gamma-ray astronomy v0.3.dev)"><span>SED</span></a>
+for details</p></li>
+<li><p>“lightcurve”: Gammapy internal format to store energy dependent
+lightcurves. Basically a generalisation of the “gadf” format, but
+currently there is no detailed documentation available.</p></li>
+<li><p>“binned-time-series”: table format support by Astropy’s
+<a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.timeseries.BinnedTimeSeries.html#astropy.timeseries.BinnedTimeSeries" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinnedTimeSeries</span></code></a>.</p></li>
+<li><p>“profile”: Gammapy internal format to store energy dependent
+flux profiles. Basically a generalisation of the “gadf” format, but
+currently there is no detailed documentation available.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>formatted</strong><span class="classifier">bool</span></dt><dd><p>Formatted version with column formats applied. Numerical columns are
+formatted to .3f and .3e respectively.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>table</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></dt><dd><p>Flux points table</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>This is how to read and plot example flux points:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fp</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;$GAMMAPY_DATA/hawc_crab/HAWC19_flux_points.fits&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">sed_type</span><span class="o">=</span><span class="s2">&quot;flux&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;gadf-sed&quot;</span><span class="p">,</span> <span class="n">formatted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">e_ref e_min e_max     flux      flux_err    flux_ul      ts    sqrt_ts is_ul</span>
+<span class="go"> TeV   TeV   TeV  1 / (cm2 s) 1 / (cm2 s) 1 / (cm2 s)</span>
+<span class="go">----- ----- ----- ----------- ----------- ----------- -------- ------- -----</span>
+<span class="go">1.334 1.000 1.780   1.423e-11   3.135e-13         nan 2734.000  52.288 False</span>
+<span class="go">2.372 1.780 3.160   5.780e-12   1.082e-13         nan 4112.000  64.125 False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.FluxPoints.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sed_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf-sed'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/points/core.html#FluxPoints.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.FluxPoints.write" title="Permalink to this definition">#</a></dt>
+<dd><p>Write flux points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Filename</p>
+</dd>
+<dt><strong>sed_type</strong><span class="classifier">{“dnde”, “flux”, “eflux”, “e2dnde”, “likelihood”}</span></dt><dd><p>Sed type</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf-sed”, “lightcurve”, “binned-time-series”, “profile”}</span></dt><dd><p>Format specification. The following formats are supported:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>“gadf-sed”: format for sed flux points see <a class="reference external" href="https://gamma-astro-data-formats.readthedocs.io/en/latest/spectra/flux_points/index.html#flux-points" title="(in Data formats for gamma-ray astronomy v0.3.dev)"><span>SED</span></a></dt><dd><p>for details</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“lightcurve”: Gammapy internal format to store energy dependent</dt><dd><p>lightcurves. Basically a generalisation of the “gadf” format, but
+currently there is no detailed documentation available.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“binned-time-series”: table format support by Astropy’s</dt><dd><p><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.timeseries.BinnedTimeSeries.html#astropy.timeseries.BinnedTimeSeries" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinnedTimeSeries</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“profile”: Gammapy internal format to store energy dependent</dt><dd><p>flux profiles. Basically a generalisation of the “gadf” format, but
+currently there is no detailed documentation available.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table.write" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.table.Table.write</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, The Gammapy developers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDispKernelMap &#8212; gammapy v0.20.dev836+gef96e074c.d20220506</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gammapy.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/gammapy_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/gammapy_logo_nav.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting-started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/index.html">
+  User guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/howto.html">
+  How To
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog/index.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        dev  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables api/gammapy.irf.EDispKernelMap and {'json_url': 'https://docs.gammapy.org/stable/switcher.json', 'url_template': 'https://docs.gammapy.org/{version}/', 'version_match': 'dev'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "api/gammapy.irf.EDispKernelMap.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://docs.gammapy.org/stable/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "api/gammapy.irf.EDispKernelMap.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 0.20.dev836+gef96e074c.d20220506 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "dev") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/gammapy/gammapy" rel="noopener" target="_blank" title="Github"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">Github</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/gammapyST" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gammapy.slack.com/" rel="noopener" target="_blank" title="Slack"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.load_cta_irfs.html">
+   load_cta_irfs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.load_irf_dict_from_file.html">
+   load_irf_dict_from_file
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.Background2D.html">
+   Background2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.Background3D.html">
+   Background3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.EDispKernel.html">
+   EDispKernel
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   EDispKernelMap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.EDispMap.html">
+   EDispMap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.EffectiveAreaTable2D.html">
+   EffectiveAreaTable2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.EnergyDependentMultiGaussPSF.html">
+   EnergyDependentMultiGaussPSF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.EnergyDispersion2D.html">
+   EnergyDispersion2D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.FoVAlignment.html">
+   FoVAlignment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.IRFMap.html">
+   IRFMap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.ParametricPSF.html">
+   ParametricPSF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.PSF3D.html">
+   PSF3D
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.PSFKernel.html">
+   PSFKernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.PSFKing.html">
+   PSFKing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.PSFMap.html">
+   PSFMap
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.irf.IRF_REGISTRY.html">
+   IRF_REGISTRY
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="edispkernelmap">
+<h1>EDispKernelMap<a class="headerlink" href="#edispkernelmap" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gammapy.irf.</span></span><span class="sig-name descname"><span class="pre">EDispKernelMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edisp_kernel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.core.IRFMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">gammapy.irf.core.IRFMap</span></code></a></p>
+<p>Energy dispersion kernel map.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>edisp_kernel_map</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Map.html#gammapy.maps.Map" title="gammapy.maps.Map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></a></span></dt><dd><p>The input energy dispersion kernel map. Should be a Map with 2 non spatial axes.
+Reconstructed and and true energy axes should be given in this specific order.</p>
+</dd>
+<dt><strong>exposure_map</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Map.html#gammapy.maps.Map" title="gammapy.maps.Map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></a>, optional</span></dt><dd><p>Associated exposure map. Needs to have a consistent map geometry.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Attributes Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.edisp_map" title="gammapy.irf.EDispKernelMap.edisp_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edisp_map</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.mask_safe_image" title="gammapy.irf.EDispKernelMap.mask_safe_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_safe_image</span></code></a></p></td>
+<td><p>Mask safe for the map</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.required_axes" title="gammapy.irf.EDispKernelMap.required_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">required_axes</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.tag" title="gammapy.irf.EDispKernelMap.tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tag</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.copy" title="gammapy.irf.EDispKernelMap.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Copy IRF map</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.cutout" title="gammapy.irf.EDispKernelMap.cutout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cutout</span></code></a>(position, width[, mode])</p></td>
+<td><p>Cutout IRF map.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.downsample" title="gammapy.irf.EDispKernelMap.downsample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">downsample</span></code></a>(factor[, axis_name, weights])</p></td>
+<td><p>Downsample the spatial dimension by a given factor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.from_diagonal_response" title="gammapy.irf.EDispKernelMap.from_diagonal_response"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_diagonal_response</span></code></a>(energy_axis, ...[, geom])</p></td>
+<td><p>Create an energy dispersion map with diagonal response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.from_edisp_kernel" title="gammapy.irf.EDispKernelMap.from_edisp_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_edisp_kernel</span></code></a>(edisp[, geom])</p></td>
+<td><p>Create an energy dispersion map from the input 1D kernel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.from_gauss" title="gammapy.irf.EDispKernelMap.from_gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_gauss</span></code></a>(energy_axis, energy_axis_true, ...)</p></td>
+<td><p>Create an energy dispersion map from the input 1D kernel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.from_geom" title="gammapy.irf.EDispKernelMap.from_geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_geom</span></code></a>(geom)</p></td>
+<td><p>Create edisp map from geom.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.from_hdulist" title="gammapy.irf.EDispKernelMap.from_hdulist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_hdulist</span></code></a>(hdulist[, hdu, hdu_bands, ...])</p></td>
+<td><p>Create from <a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.get_edisp_kernel" title="gammapy.irf.EDispKernelMap.get_edisp_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edisp_kernel</span></code></a>([position, energy_axis])</p></td>
+<td><p>Get energy dispersion at a given position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.peek" title="gammapy.irf.EDispKernelMap.peek"><code class="xref py py-obj docutils literal notranslate"><span class="pre">peek</span></code></a>([figsize])</p></td>
+<td><p>Quick-look summary plots.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.read" title="gammapy.irf.EDispKernelMap.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(filename[, format, hdu])</p></td>
+<td><p>Read an IRF_map from file and create corresponding object&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.resample_energy_axis" title="gammapy.irf.EDispKernelMap.resample_energy_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample_energy_axis</span></code></a>(energy_axis[, weights])</p></td>
+<td><p>Returns a resampled EdispKernelMap</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.slice_by_idx" title="gammapy.irf.EDispKernelMap.slice_by_idx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_by_idx</span></code></a>(slices)</p></td>
+<td><p>Slice sub dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.stack" title="gammapy.irf.EDispKernelMap.stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stack</span></code></a>(other[, weights, nan_to_num])</p></td>
+<td><p>Stack IRF map with another one in place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.to_hdulist" title="gammapy.irf.EDispKernelMap.to_hdulist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_hdulist</span></code></a>([format])</p></td>
+<td><p>Convert to <a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.to_image" title="gammapy.irf.EDispKernelMap.to_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_image</span></code></a>([weights])</p></td>
+<td><p>&quot;Return a 2D EdispKernelMap by summing over the reconstructed energy axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.to_region_nd_map" title="gammapy.irf.EDispKernelMap.to_region_nd_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_region_nd_map</span></code></a>(region)</p></td>
+<td><p>Extract IRFMap in a given region or position</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.irf.EDispKernelMap.write" title="gammapy.irf.EDispKernelMap.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(filename[, overwrite, format])</p></td>
+<td><p>Write IRF map to fits</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.edisp_map">
+<span class="sig-name descname"><span class="pre">edisp_map</span></span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.edisp_map" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.mask_safe_image">
+<span class="sig-name descname"><span class="pre">mask_safe_image</span></span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.mask_safe_image" title="Permalink to this definition">#</a></dt>
+<dd><p>Mask safe for the map</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.required_axes">
+<span class="sig-name descname"><span class="pre">required_axes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_true']</span></em><a class="headerlink" href="#gammapy.irf.EDispKernelMap.required_axes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'edisp_kernel_map'</span></em><a class="headerlink" href="#gammapy.irf.EDispKernelMap.tag" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Copy IRF map</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.cutout">
+<span class="sig-name descname"><span class="pre">cutout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'trim'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.cutout" title="Permalink to this definition">#</a></dt>
+<dd><p>Cutout IRF map.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>position</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.SkyCoord.html#astropy.coordinates.SkyCoord" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyCoord</span></code></a></span></dt><dd><p>Center position of the cutout region.</p>
+</dd>
+<dt><strong>width</strong><span class="classifier">tuple of <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.Angle.html#astropy.coordinates.Angle" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Angle</span></code></a></span></dt><dd><p>Angular sizes of the region in (lon, lat) in that specific order.
+If only one value is passed, a square region is extracted.</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">{‘trim’, ‘partial’, ‘strict’}</span></dt><dd><p>Mode option for Cutout2D, for details see <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.nddata.utils.Cutout2D.html#astropy.nddata.utils.Cutout2D" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cutout2D</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>cutout</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>Cutout IRF map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.downsample">
+<span class="sig-name descname"><span class="pre">downsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.downsample" title="Permalink to this definition">#</a></dt>
+<dd><p>Downsample the spatial dimension by a given factor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>factor</strong><span class="classifier">int</span></dt><dd><p>Downsampling factor.</p>
+</dd>
+<dt><strong>axis_name</strong><span class="classifier">str</span></dt><dd><p>Which axis to downsample. By default spatial axes are downsampled.</p>
+</dd>
+<dt><strong>weights</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Map.html#gammapy.maps.Map" title="gammapy.maps.Map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></a></span></dt><dd><p>Map with weights downsampling.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>map</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>Downsampled irf map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.from_diagonal_response">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_diagonal_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_axis_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.from_diagonal_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.from_diagonal_response" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an energy dispersion map with diagonal response.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_axis</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.MapAxis.html#gammapy.maps.MapAxis" title="gammapy.maps.MapAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code></a></span></dt><dd><p>Energy axis.</p>
+</dd>
+<dt><strong>energy_axis_true</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.MapAxis.html#gammapy.maps.MapAxis" title="gammapy.maps.MapAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code></a></span></dt><dd><p>True energy axis</p>
+</dd>
+<dt><strong>geom</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Geom.html#gammapy.maps.Geom" title="gammapy.maps.Geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code></a></span></dt><dd><p>The (2D) geom object to use. Default creates an all sky geometry with 2 bins.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp_map</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Energy dispersion kernel map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.from_edisp_kernel">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_edisp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edisp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.from_edisp_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.from_edisp_kernel" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an energy dispersion map from the input 1D kernel.</p>
+<p>The kernel will be duplicated over all spatial bins.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>edisp</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernel</span></code></span></dt><dd><p>the input 1D kernel.</p>
+</dd>
+<dt><strong>geom</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Geom.html#gammapy.maps.Geom" title="gammapy.maps.Geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code></a></span></dt><dd><p>The (2D) geom object to use. Default creates an all sky geometry with 2 bins.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp_map</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Energy dispersion kernel map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.from_gauss">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_gauss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_axis_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.from_gauss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.from_gauss" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an energy dispersion map from the input 1D kernel.</p>
+<p>The kernel will be duplicated over all spatial bins.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_axis_true</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Bin edges of true energy axis</p>
+</dd>
+<dt><strong>energy_axis</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Bin edges of reconstructed energy axis</p>
+</dd>
+<dt><strong>bias</strong><span class="classifier">float or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>Center of Gaussian energy dispersion, bias</p>
+</dd>
+<dt><strong>sigma</strong><span class="classifier">float or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>RMS width of Gaussian energy dispersion, resolution</p>
+</dd>
+<dt><strong>pdf_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>Zero suppression threshold</p>
+</dd>
+<dt><strong>geom</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Geom.html#gammapy.maps.Geom" title="gammapy.maps.Geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code></a></span></dt><dd><p>The (2D) geom object to use. Default creates an all sky geometry with 2 bins.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp_map</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Energy dispersion kernel map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.from_geom">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_geom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geom</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.from_geom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.from_geom" title="Permalink to this definition">#</a></dt>
+<dd><p>Create edisp map from geom.</p>
+<p>By default a diagonal edisp matrix is created.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>geom</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Geom.html#gammapy.maps.Geom" title="gammapy.maps.Geom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geom</span></code></a></span></dt><dd><p>Edisp map geometry.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp_map</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Energy dispersion kernel map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.from_hdulist">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_hdulist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hdulist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdu_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_hdu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposure_hdu_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.from_hdulist" title="Permalink to this definition">#</a></dt>
+<dd><p>Create from <a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>hdulist</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></span></dt><dd><p>HDU list.</p>
+</dd>
+<dt><strong>hdu</strong><span class="classifier">str</span></dt><dd><p>Name or index of the HDU with the IRF map.</p>
+</dd>
+<dt><strong>hdu_bands</strong><span class="classifier">str</span></dt><dd><p>Name or index of the HDU with the IRF map BANDS table.</p>
+</dd>
+<dt><strong>exposure_hdu</strong><span class="classifier">str</span></dt><dd><p>Name or index of the HDU with the exposure map data.</p>
+</dd>
+<dt><strong>exposure_hdu_bands</strong><span class="classifier">str</span></dt><dd><p>Name or index of the HDU with the exposure map BANDS table.</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf”, “gtpsf”}</span></dt><dd><p>File format</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>irf_map</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>IRF map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.get_edisp_kernel">
+<span class="sig-name descname"><span class="pre">get_edisp_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.get_edisp_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.get_edisp_kernel" title="Permalink to this definition">#</a></dt>
+<dd><p>Get energy dispersion at a given position.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>position</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.SkyCoord.html#astropy.coordinates.SkyCoord" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyCoord</span></code></a> or <a class="reference external" href="https://astropy-regions.readthedocs.io/en/latest/api/regions.SkyRegion.html#regions.SkyRegion" title="(in regions v0.7.dev22+gd25fb8a)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyRegion</span></code></a></span></dt><dd><p>The target position. Should be a single coordinates</p>
+</dd>
+<dt><strong>energy_axis</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code></span></dt><dd><p>Reconstructed energy axis, only used for checking.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyDispersion</span></code></span></dt><dd><p>the energy dispersion (i.e. rmf object)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.peek">
+<span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(15,</span> <span class="pre">5)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.peek"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.peek" title="Permalink to this definition">#</a></dt>
+<dd><p>Quick-look summary plots.
+Plots corresponding to the center of the map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>figsize</strong><span class="classifier">tuple</span></dt><dd><p>Size of figure.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.read">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.read" title="Permalink to this definition">#</a></dt>
+<dd><p>Read an IRF_map from file and create corresponding object”</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>filename</strong><span class="classifier">str or <code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></span></dt><dd><p>File name</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf”, “gtpsf”}</span></dt><dd><p>File format</p>
+</dd>
+<dt><strong>hdu</strong><span class="classifier">str or int</span></dt><dd><p>HDU location</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>irf_map</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.PSFMap.html#gammapy.irf.PSFMap" title="gammapy.irf.PSFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSFMap</span></code></a>, <a class="reference internal" href="gammapy.irf.EDispMap.html#gammapy.irf.EDispMap" title="gammapy.irf.EDispMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispMap</span></code></a> or <a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>IRF map</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.resample_energy_axis">
+<span class="sig-name descname"><span class="pre">resample_energy_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.resample_energy_axis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.resample_energy_axis" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a resampled EdispKernelMap</p>
+<p>Bins are grouped according to the edges of the reconstructed energy axis provided.
+The true energy is left unchanged.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>energy_axis</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.MapAxis.html#gammapy.maps.MapAxis" title="gammapy.maps.MapAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapAxis</span></code></a></span></dt><dd><p>The reco energy axis to use for the reco energy grouping</p>
+</dd>
+<dt><strong>weights: `~gammapy.maps.Map`, optional</strong></dt><dd><p>Weights to be applied</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Edisp kernel map</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.slice_by_idx">
+<span class="sig-name descname"><span class="pre">slice_by_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.slice_by_idx" title="Permalink to this definition">#</a></dt>
+<dd><p>Slice sub dataset.</p>
+<p>The slicing only applies to the maps that define the corresponding axes.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>slices</strong><span class="classifier">dict</span></dt><dd><p>Dict of axes names and integers or <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice</span></code></a> object pairs. Contains one
+element for each non-spatial dimension. For integer indexing the
+corresponding axes is dropped from the map. Axes not specified in the
+dict are kept unchanged.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>map_out</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>Sliced irf map object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.stack">
+<span class="sig-name descname"><span class="pre">stack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_to_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.stack" title="Permalink to this definition">#</a></dt>
+<dd><p>Stack IRF map with another one in place.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>other</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>IRF map to be stacked with this one.</p>
+</dd>
+<dt><strong>weights</strong><span class="classifier"><a class="reference internal" href="gammapy.maps.Map.html#gammapy.maps.Map" title="gammapy.maps.Map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Map</span></code></a></span></dt><dd><p>Map with stacking weights.</p>
+</dd>
+<dt><strong>nan_to_num: bool</strong></dt><dd><p>Non-finite values are replaced by zero if True (default).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.to_hdulist">
+<span class="sig-name descname"><span class="pre">to_hdulist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.to_hdulist" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert to <a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>format</strong><span class="classifier">{“gadf”, “gtpsf”}</span></dt><dd><p>File format</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>hdu_list</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/io/fits/api/hdulists.html#astropy.io.fits.HDUList" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDUList</span></code></a></span></dt><dd><p>HDU list.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/irf/edisp/map.html#EDispKernelMap.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.irf.EDispKernelMap.to_image" title="Permalink to this definition">#</a></dt>
+<dd><p>“Return a 2D EdispKernelMap by summing over the reconstructed energy axis.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>weights: `~gammapy.maps.Map`, optional</strong></dt><dd><p>Weights to be applied</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>edisp</strong><span class="classifier"><a class="reference internal" href="#gammapy.irf.EDispKernelMap" title="gammapy.irf.EDispKernelMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDispKernelMap</span></code></a></span></dt><dd><p>Edisp kernel map</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.to_region_nd_map">
+<span class="sig-name descname"><span class="pre">to_region_nd_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.to_region_nd_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Extract IRFMap in a given region or position</p>
+<p>If a region is given a mean IRF is computed, if a position is given the
+IRF is interpolated.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>region</strong><span class="classifier"><a class="reference external" href="https://astropy-regions.readthedocs.io/en/latest/api/regions.SkyRegion.html#regions.SkyRegion" title="(in regions v0.7.dev22+gd25fb8a)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyRegion</span></code></a> or <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.SkyCoord.html#astropy.coordinates.SkyCoord" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkyCoord</span></code></a></span></dt><dd><p>Region or position where to get the map.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>irf</strong><span class="classifier"><a class="reference internal" href="gammapy.irf.IRFMap.html#gammapy.irf.IRFMap" title="gammapy.irf.IRFMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IRFMap</span></code></a></span></dt><dd><p>IRF map with region geometry.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.irf.EDispKernelMap.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.irf.EDispKernelMap.write" title="Permalink to this definition">#</a></dt>
+<dd><p>Write IRF map to fits</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>filename</strong><span class="classifier">str or <code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></span></dt><dd><p>Filename to write to</p>
+</dd>
+<dt><strong>overwrite</strong><span class="classifier">bool</span></dt><dd><p>Whether to overwrite</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf”, “gtpsf”}</span></dt><dd><p>File format</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, The Gammapy developers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASmoothMapEstimator &#8212; gammapy v0.20.dev836+gef96e074c.d20220506</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gammapy.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/gammapy_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/gammapy_logo_nav.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting-started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/index.html">
+  User guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/howto.html">
+  How To
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog/index.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        dev  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables api/gammapy.estimators.ASmoothMapEstimator and {'json_url': 'https://docs.gammapy.org/stable/switcher.json', 'url_template': 'https://docs.gammapy.org/{version}/', 'version_match': 'dev'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "api/gammapy.estimators.ASmoothMapEstimator.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://docs.gammapy.org/stable/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "api/gammapy.estimators.ASmoothMapEstimator.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 0.20.dev836+gef96e074c.d20220506 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "dev") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/gammapy/gammapy" rel="noopener" target="_blank" title="Github"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">Github</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/gammapyST" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gammapy.slack.com/" rel="noopener" target="_blank" title="Slack"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ASmoothMapEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.Estimator.html">
+   Estimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ExcessMapEstimator.html">
+   ExcessMapEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxMaps.html">
+   FluxMaps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxPoints.html">
+   FluxPoints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxPointsEstimator.html">
+   FluxPointsEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.FluxProfileEstimator.html">
+   FluxProfileEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ImageProfile.html">
+   ImageProfile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ImageProfileEstimator.html">
+   ImageProfileEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.LightCurveEstimator.html">
+   LightCurveEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.SensitivityEstimator.html">
+   SensitivityEstimator
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.TSMapEstimator.html">
+   TSMapEstimator
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.ESTIMATOR_REGISTRY.html">
+   ESTIMATOR_REGISTRY
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.estimate_exposure_reco_energy.html">
+   estimate_exposure_reco_energy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.find_peaks.html">
+   find_peaks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.estimators.utils.resample_energy_edges.html">
+   resample_energy_edges
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="asmoothmapestimator">
+<h1>ASmoothMapEstimator<a class="headerlink" href="#asmoothmapestimator" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gammapy.estimators.</span></span><span class="sig-name descname"><span class="pre">ASmoothMapEstimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel=&lt;class</span> <span class="pre">'astropy.convolution.kernels.Gaussian2DKernel'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectrum=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method='lima'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_edges=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="gammapy.estimators.Estimator.html#gammapy.estimators.Estimator" title="gammapy.estimators.core.Estimator"><code class="xref py py-class docutils literal notranslate"><span class="pre">gammapy.estimators.core.Estimator</span></code></a></p>
+<p>Adaptively smooth counts image.</p>
+<p>Achieves a roughly constant sqrt_ts of features across the whole image.</p>
+<p>Algorithm based on <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2006MNRAS.368...65E">https://ui.adsabs.harvard.edu/abs/2006MNRAS.368…65E</a></p>
+<p>The algorithm was slightly adapted to also allow Li &amp; Ma  to estimate the
+sqrt_ts of a feature in the image.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>scales</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.units.Quantity.html#astropy.units.Quantity" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Quantity</span></code></a></span></dt><dd><p>Smoothing scales.</p>
+</dd>
+<dt><strong>kernel</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.convolution.Kernel.html#astropy.convolution.Kernel" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">astropy.convolution.Kernel</span></code></a></span></dt><dd><p>Smoothing kernel.</p>
+</dd>
+<dt><strong>spectrum</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectralModel</span></code></span></dt><dd><p>Spectral model assumption</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">{‘asmooth’, ‘lima’}</span></dt><dd><p>Significance estimation method.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>Significance threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">ASmoothMapEstimator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.datasets</span> <span class="kn">import</span> <span class="n">MapDataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">MapDataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;$GAMMAPY_DATA/cta-1dc-gc/cta-1dc-gc.fits.gz&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scales</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;deg&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">smooth</span> <span class="o">=</span> <span class="n">ASmoothMapEstimator</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="n">scales</span><span class="p">,</span> <span class="n">energy_edges</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">TeV</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">images</span> <span class="o">=</span> <span class="n">smooth</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.config_parameters" title="gammapy.estimators.ASmoothMapEstimator.config_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">config_parameters</span></code></a></p></td>
+<td><p>Config parameters</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.selection_optional" title="gammapy.estimators.ASmoothMapEstimator.selection_optional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selection_optional</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.tag" title="gammapy.estimators.ASmoothMapEstimator.tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tag</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.copy" title="gammapy.estimators.ASmoothMapEstimator.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Copy estimator</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.estimate_maps" title="gammapy.estimators.ASmoothMapEstimator.estimate_maps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_maps</span></code></a>(dataset)</p></td>
+<td><p>Run adaptive smoothing on input Maps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.get_kernels" title="gammapy.estimators.ASmoothMapEstimator.get_kernels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kernels</span></code></a>(pixel_scale)</p></td>
+<td><p>Get kernels according to the specified method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.get_scales" title="gammapy.estimators.ASmoothMapEstimator.get_scales"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scales</span></code></a>(n_scales[, factor, kernel])</p></td>
+<td><p>Create list of Gaussian widths.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.run" title="gammapy.estimators.ASmoothMapEstimator.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(dataset)</p></td>
+<td><p>Run adaptive smoothing on input MapDataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.estimators.ASmoothMapEstimator.selection_all" title="gammapy.estimators.ASmoothMapEstimator.selection_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selection_all</span></code></a>()</p></td>
+<td><p>Which quantities are computed</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.config_parameters">
+<span class="sig-name descname"><span class="pre">config_parameters</span></span><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.config_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Config parameters</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.selection_optional">
+<span class="sig-name descname"><span class="pre">selection_optional</span></span><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.selection_optional" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ASmoothMapEstimator'</span></em><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.tag" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Copy estimator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.estimate_maps">
+<span class="sig-name descname"><span class="pre">estimate_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator.estimate_maps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.estimate_maps" title="Permalink to this definition">#</a></dt>
+<dd><p>Run adaptive smoothing on input Maps.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataset</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapDataset</span></code></span></dt><dd><p>Dataset</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>images</strong><span class="classifier">dict of <a class="reference internal" href="gammapy.maps.WcsNDMap.html#gammapy.maps.WcsNDMap" title="gammapy.maps.WcsNDMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsNDMap</span></code></a></span></dt><dd><dl class="simple">
+<dt>Smoothed images; keys are:</dt><dd><ul class="simple">
+<li><p>‘counts’</p></li>
+<li><p>‘background’</p></li>
+<li><p>‘flux’ (optional)</p></li>
+<li><p>‘scales’</p></li>
+<li><p>‘sqrt_ts’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.get_kernels">
+<span class="sig-name descname"><span class="pre">get_kernels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixel_scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator.get_kernels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.get_kernels" title="Permalink to this definition">#</a></dt>
+<dd><p>Get kernels according to the specified method.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>pixel_scale</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.coordinates.Angle.html#astropy.coordinates.Angle" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Angle</span></code></a></span></dt><dd><p>Sky image pixel scale</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>kernels</strong><span class="classifier">list</span></dt><dd><p>List of <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.convolution.Kernel.html#astropy.convolution.Kernel" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Kernel</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.get_scales">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_scales</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_scales</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor=1.4142135623730951</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel=&lt;class</span> <span class="pre">'astropy.convolution.kernels.Gaussian2DKernel'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator.get_scales"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.get_scales" title="Permalink to this definition">#</a></dt>
+<dd><p>Create list of Gaussian widths.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_scales</strong><span class="classifier">int</span></dt><dd><p>Number of scales</p>
+</dd>
+<dt><strong>factor</strong><span class="classifier">float</span></dt><dd><p>Incremental factor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>scales</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>Scale array</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.run" title="Permalink to this definition">#</a></dt>
+<dd><p>Run adaptive smoothing on input MapDataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference internal" href="gammapy.datasets.MapDataset.html#gammapy.datasets.MapDataset" title="gammapy.datasets.MapDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapDataset</span></code></a> or <a class="reference internal" href="gammapy.datasets.MapDatasetOnOff.html#gammapy.datasets.MapDatasetOnOff" title="gammapy.datasets.MapDatasetOnOff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MapDatasetOnOff</span></code></a></span></dt><dd><p>the input dataset (with one bin in energy at most)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>images</strong><span class="classifier">dict of <a class="reference internal" href="gammapy.maps.WcsNDMap.html#gammapy.maps.WcsNDMap" title="gammapy.maps.WcsNDMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsNDMap</span></code></a></span></dt><dd><dl class="simple">
+<dt>Smoothed images; keys are:</dt><dd><ul class="simple">
+<li><p>‘counts’</p></li>
+<li><p>‘background’</p></li>
+<li><p>‘flux’ (optional)</p></li>
+<li><p>‘scales’</p></li>
+<li><p>‘sqrt_ts’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.estimators.ASmoothMapEstimator.selection_all">
+<span class="sig-name descname"><span class="pre">selection_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/estimators/map/asmooth.html#ASmoothMapEstimator.selection_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.estimators.ASmoothMapEstimator.selection_all" title="Permalink to this definition">#</a></dt>
+<dd><p>Which quantities are computed</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, The Gammapy developers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

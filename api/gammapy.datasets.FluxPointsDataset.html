@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FluxPointsDataset &#8212; gammapy v0.20.dev836+gef96e074c.d20220506</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gammapy.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/gammapy_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/gammapy_logo_nav.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting-started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/index.html">
+  User guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../userguide/howto.html">
+  How To
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../development/index.html">
+  Development
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../changelog/index.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        dev  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables api/gammapy.datasets.FluxPointsDataset and {'json_url': 'https://docs.gammapy.org/stable/switcher.json', 'url_template': 'https://docs.gammapy.org/{version}/', 'version_match': 'dev'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "api/gammapy.datasets.FluxPointsDataset.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://docs.gammapy.org/stable/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "api/gammapy.datasets.FluxPointsDataset.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's 0.20.dev836+gef96e074c.d20220506 variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "dev") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/gammapy/gammapy" rel="noopener" target="_blank" title="Github"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">Github</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/gammapyST" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://gammapy.slack.com/" rel="noopener" target="_blank" title="Slack"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.create_map_dataset_geoms.html">
+   create_map_dataset_geoms
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.Dataset.html">
+   Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.Datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   FluxPointsDataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.MapDataset.html">
+   MapDataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.MapDatasetEventSampler.html">
+   MapDatasetEventSampler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.MapDatasetOnOff.html">
+   MapDatasetOnOff
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.OGIPDatasetWriter.html">
+   OGIPDatasetWriter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.OGIPDatasetReader.html">
+   OGIPDatasetReader
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.SpectrumDataset.html">
+   SpectrumDataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.SpectrumDatasetOnOff.html">
+   SpectrumDatasetOnOff
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gammapy.datasets.DATASET_REGISTRY.html">
+   DATASET_REGISTRY
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="fluxpointsdataset">
+<h1>FluxPointsDataset<a class="headerlink" href="#fluxpointsdataset" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gammapy.datasets.</span></span><span class="sig-name descname"><span class="pre">FluxPointsDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_safe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="gammapy.datasets.Dataset.html#gammapy.datasets.Dataset" title="gammapy.datasets.core.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">gammapy.datasets.core.Dataset</span></code></a></p>
+<p>Bundle a set of flux points with a parametric model, to compute fit statistic function using chi2 statistics.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>models</strong><span class="classifier"><a class="reference internal" href="gammapy.modeling.models.Models.html#gammapy.modeling.models.Models" title="gammapy.modeling.models.Models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Models</span></code></a></span></dt><dd><p>Models (only spectral part needs to be set)</p>
+</dd>
+<dt><strong>data</strong><span class="classifier"><a class="reference internal" href="gammapy.estimators.FluxPoints.html#gammapy.estimators.FluxPoints" title="gammapy.estimators.FluxPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPoints</span></code></a></span></dt><dd><p>Flux points. Must be sorted along the energy axis</p>
+</dd>
+<dt><strong>mask_fit</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Mask to apply for fitting</p>
+</dd>
+<dt><strong>mask_safe</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Mask defining the safe data range. By default upper limit values are excluded.</p>
+</dd>
+<dt><strong>meta_table</strong><span class="classifier"><a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Table</span></code></a></span></dt><dd><p>Table listing information on observations used to create the dataset.
+One line per observation for stacked datasets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Load flux points from file and fit with a power-law model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.modeling</span> <span class="kn">import</span> <span class="n">Fit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.modeling.models</span> <span class="kn">import</span> <span class="n">PowerLawSpectralModel</span><span class="p">,</span> <span class="n">SkyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.datasets</span> <span class="kn">import</span> <span class="n">FluxPointsDataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;$GAMMAPY_DATA/tests/spectrum/flux_points/diff_flux_points.fits&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">FluxPointsDataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">SkyModel</span><span class="p">(</span><span class="n">spectral_model</span><span class="o">=</span><span class="n">PowerLawSpectralModel</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p>Make the fit</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">dataset</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="go">OptimizeResult</span>
+
+<span class="go">    backend    : minuit</span>
+<span class="go">    method     : migrad</span>
+<span class="go">    success    : True</span>
+<span class="go">    message    : Optimization terminated successfully.</span>
+<span class="go">    nfev       : 135</span>
+<span class="go">    total stat : 25.21</span>
+
+<span class="go">CovarianceResult</span>
+
+<span class="go">    backend    : minuit</span>
+<span class="go">    method     : hesse</span>
+<span class="go">    success    : True</span>
+<span class="go">    message    : Hesse terminated successfully.</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">to_table</span><span class="p">())</span>
+<span class="go">  type      name     value         unit      ... max frozen is_norm link</span>
+<span class="go">-------- --------- ---------- -------------- ... --- ------ ------- ----</span>
+<span class="go">spectral     index 2.2159e+00                ... nan  False   False</span>
+<span class="go">spectral amplitude 2.1619e-13 cm-2 s-1 TeV-1 ... nan  False    True</span>
+<span class="go">spectral reference 1.0000e+00            TeV ... nan   True   False</span>
+</pre></div>
+</div>
+<p>Note: In order to reproduce the example you need the tests datasets folder.
+You may download it with the command
+<code class="docutils literal notranslate"><span class="pre">gammapy</span> <span class="pre">download</span> <span class="pre">datasets</span> <span class="pre">--tests</span> <span class="pre">--out</span> <span class="pre">$GAMMAPY_DATA</span></code></p>
+<p class="rubric">Attributes Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.gti" title="gammapy.datasets.FluxPointsDataset.gti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gti</span></code></a></p></td>
+<td><p>Good time interval info (<code class="xref py py-obj docutils literal notranslate"><span class="pre">GTI</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.mask" title="gammapy.datasets.FluxPointsDataset.mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask</span></code></a></p></td>
+<td><p>Combined fit and safe mask</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.models" title="gammapy.datasets.FluxPointsDataset.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">models</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.name" title="gammapy.datasets.FluxPointsDataset.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.stat_type" title="gammapy.datasets.FluxPointsDataset.stat_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat_type</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.tag" title="gammapy.datasets.FluxPointsDataset.tag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tag</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.copy" title="gammapy.datasets.FluxPointsDataset.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>([name])</p></td>
+<td><p>A deep copy.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.data_shape" title="gammapy.datasets.FluxPointsDataset.data_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_shape</span></code></a>()</p></td>
+<td><p>Shape of the flux points data (tuple).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.flux_pred" title="gammapy.datasets.FluxPointsDataset.flux_pred"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flux_pred</span></code></a>()</p></td>
+<td><p>Compute predicted flux.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.from_dict" title="gammapy.datasets.FluxPointsDataset.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dict</span></code></a>(data, **kwargs)</p></td>
+<td><p>Create flux point dataset from dict.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_fit" title="gammapy.datasets.FluxPointsDataset.plot_fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_fit</span></code></a>([ax_spectrum, ax_residuals, ...])</p></td>
+<td><p>Plot flux points, best fit model and residuals in two panels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_residuals" title="gammapy.datasets.FluxPointsDataset.plot_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_residuals</span></code></a>([ax, method])</p></td>
+<td><p>Plot flux point residuals.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_spectrum" title="gammapy.datasets.FluxPointsDataset.plot_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrum</span></code></a>([ax, kwargs_fp, kwargs_model])</p></td>
+<td><p>Plot spectrum including flux points and model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.read" title="gammapy.datasets.FluxPointsDataset.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(filename[, name, format])</p></td>
+<td><p>Read pre-computed flux points and create a dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.residuals" title="gammapy.datasets.FluxPointsDataset.residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residuals</span></code></a>([method])</p></td>
+<td><p>Compute flux point residuals</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.stat_array" title="gammapy.datasets.FluxPointsDataset.stat_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat_array</span></code></a>()</p></td>
+<td><p>Fit statistic array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.stat_sum" title="gammapy.datasets.FluxPointsDataset.stat_sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat_sum</span></code></a>()</p></td>
+<td><p>Total statistic given the current model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.to_dict" title="gammapy.datasets.FluxPointsDataset.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Convert to dict for YAML serialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.write" title="gammapy.datasets.FluxPointsDataset.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(filename[, overwrite])</p></td>
+<td><p>Write flux point dataset to file.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.gti">
+<span class="sig-name descname"><span class="pre">gti</span></span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.gti" title="Permalink to this definition">#</a></dt>
+<dd><p>Good time interval info (<code class="xref py py-obj docutils literal notranslate"><span class="pre">GTI</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.mask">
+<span class="sig-name descname"><span class="pre">mask</span></span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.mask" title="Permalink to this definition">#</a></dt>
+<dd><p>Combined fit and safe mask</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.models">
+<span class="sig-name descname"><span class="pre">models</span></span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.models" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.stat_type">
+<span class="sig-name descname"><span class="pre">stat_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'chi2'</span></em><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.stat_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FluxPointsDataset'</span></em><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.tag" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>A deep copy.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the copied dataset</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference internal" href="gammapy.datasets.Dataset.html#gammapy.datasets.Dataset" title="gammapy.datasets.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a></span></dt><dd><p>Copied datasets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.data_shape">
+<span class="sig-name descname"><span class="pre">data_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.data_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.data_shape" title="Permalink to this definition">#</a></dt>
+<dd><p>Shape of the flux points data (tuple).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.flux_pred">
+<span class="sig-name descname"><span class="pre">flux_pred</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.flux_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.flux_pred" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute predicted flux.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.from_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Create flux point dataset from dict.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">dict</span></dt><dd><p>Dict containing data to create dataset from.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset" title="gammapy.datasets.FluxPointsDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPointsDataset</span></code></a></span></dt><dd><p>Flux point datasets.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.plot_fit">
+<span class="sig-name descname"><span class="pre">plot_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax_spectrum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax_residuals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_spectrum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_residuals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.plot_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.plot_fit" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot flux points, best fit model and residuals in two panels.</p>
+<p>Calls <a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_spectrum" title="gammapy.datasets.FluxPointsDataset.plot_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrum</span></code></a> and <a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_residuals" title="gammapy.datasets.FluxPointsDataset.plot_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_residuals</span></code></a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ax_spectrum</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes to plot flux points and best fit model on.</p>
+</dd>
+<dt><strong>ax_residuals</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes to plot residuals on.</p>
+</dd>
+<dt><strong>kwargs_spectrum</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_spectrum" title="gammapy.datasets.FluxPointsDataset.plot_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_spectrum</span></code></a>.</p>
+</dd>
+<dt><strong>kwargs_residuals</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.plot_residuals" title="gammapy.datasets.FluxPointsDataset.plot_residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_residuals</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ax_spectrum, ax_residuals</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Flux points, best fit model and residuals plots.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.modeling.models</span> <span class="kn">import</span> <span class="n">PowerLawSpectralModel</span><span class="p">,</span> <span class="n">SkyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.datasets</span> <span class="kn">import</span> <span class="n">FluxPointsDataset</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#load precomputed flux points</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;$GAMMAPY_DATA/tests/spectrum/flux_points/diff_flux_points.fits&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">SkyModel</span><span class="p">(</span><span class="n">spectral_model</span><span class="o">=</span><span class="n">PowerLawSpectralModel</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">FluxPointsDataset</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">flux_points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#configuring optional parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kwargs_spectrum</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;kwargs_model&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">},</span> <span class="s2">&quot;kwargs_fp&quot;</span><span class="p">:{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;marker&quot;</span><span class="p">:</span><span class="s2">&quot;o&quot;</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kwargs_residuals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;markersize&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;marker&quot;</span><span class="p">:</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">plot_fit</span><span class="p">(</span><span class="n">kwargs_residuals</span><span class="o">=</span><span class="n">kwargs_residuals</span><span class="p">,</span> <span class="n">kwargs_spectrum</span><span class="o">=</span><span class="n">kwargs_spectrum</span><span class="p">)</span> 
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.plot_residuals">
+<span class="sig-name descname"><span class="pre">plot_residuals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'diff'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.plot_residuals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.plot_residuals" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot flux point residuals.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes to plot on.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">{“diff”, “diff/model”}</span></dt><dd><p>Normalization used to compute the residuals, see <a class="reference internal" href="#gammapy.datasets.FluxPointsDataset.residuals" title="gammapy.datasets.FluxPointsDataset.residuals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPointsDataset.residuals</span></code></a>.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">errorbar</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.plot_spectrum">
+<span class="sig-name descname"><span class="pre">plot_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_fp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.plot_spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.plot_spectrum" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot spectrum including flux points and model.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes to plot on.</p>
+</dd>
+<dt><strong>kwargs_fp</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference internal" href="gammapy.estimators.FluxPoints.html#gammapy.estimators.FluxPoints.plot" title="gammapy.estimators.FluxPoints.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gammapy.estimators.FluxPoints.plot</span></code></a>.</p>
+</dd>
+<dt><strong>kwargs_model</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference internal" href="gammapy.modeling.models.SpectralModel.html#gammapy.modeling.models.SpectralModel.plot" title="gammapy.modeling.models.SpectralModel.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gammapy.modeling.models.SpectralModel.plot</span></code></a> and
+<a class="reference internal" href="gammapy.modeling.models.SpectralModel.html#gammapy.modeling.models.SpectralModel.plot_error" title="gammapy.modeling.models.SpectralModel.plot_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gammapy.modeling.models.SpectralModel.plot_error</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a></span></dt><dd><p>Axes object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.modeling.models</span> <span class="kn">import</span> <span class="n">PowerLawSpectralModel</span><span class="p">,</span> <span class="n">SkyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.estimators</span> <span class="kn">import</span> <span class="n">FluxPoints</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gammapy.datasets</span> <span class="kn">import</span> <span class="n">FluxPointsDataset</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#load precomputed flux points</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;$GAMMAPY_DATA/tests/spectrum/flux_points/diff_flux_points.fits&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux_points</span> <span class="o">=</span> <span class="n">FluxPoints</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">SkyModel</span><span class="p">(</span><span class="n">spectral_model</span><span class="o">=</span><span class="n">PowerLawSpectralModel</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">FluxPointsDataset</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">flux_points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#configuring optional parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kwargs_model</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kwargs_fp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;marker&quot;</span><span class="p">:</span><span class="s2">&quot;o&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">plot_spectrum</span><span class="p">(</span><span class="n">kwargs_fp</span><span class="o">=</span><span class="n">kwargs_fp</span><span class="p">,</span> <span class="n">kwargs_model</span><span class="o">=</span><span class="n">kwargs_model</span><span class="p">)</span> 
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.read">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gadf-sed'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.read" title="Permalink to this definition">#</a></dt>
+<dd><p>Read pre-computed flux points and create a dataset</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Filename to read from.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the new dataset.</p>
+</dd>
+<dt><strong>format</strong><span class="classifier">{“gadf-sed”}</span></dt><dd><p>Format of the dataset file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference internal" href="#gammapy.datasets.FluxPointsDataset" title="gammapy.datasets.FluxPointsDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxPointsDataset</span></code></a></span></dt><dd><p>FluxPointsDataset</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.residuals">
+<span class="sig-name descname"><span class="pre">residuals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'diff'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.residuals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.residuals" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute flux point residuals</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>method: {“diff”, “diff/model”}</strong></dt><dd><dl class="simple">
+<dt>Method used to compute the residuals. Available options are:</dt><dd><ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff</span></code> (default): data - model</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">diff/model</span></code>: (data - model) / model</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>residuals</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></dt><dd><p>Residuals array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.stat_array">
+<span class="sig-name descname"><span class="pre">stat_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.stat_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.stat_array" title="Permalink to this definition">#</a></dt>
+<dd><p>Fit statistic array.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.stat_sum">
+<span class="sig-name descname"><span class="pre">stat_sum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.stat_sum" title="Permalink to this definition">#</a></dt>
+<dd><p>Total statistic given the current model parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.to_dict" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert to dict for YAML serialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gammapy.datasets.FluxPointsDataset.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gammapy/datasets/flux_points.html#FluxPointsDataset.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gammapy.datasets.FluxPointsDataset.write" title="Permalink to this definition">#</a></dt>
+<dd><p>Write flux point dataset to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Filename to write to.</p>
+</dd>
+<dt><strong>overwrite</strong><span class="classifier">bool</span></dt><dd><p>Overwrite existing file.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Keyword arguments passed to <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.table.Table.html#astropy.table.Table.write" title="(in Astropy v5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, The Gammapy developers.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
